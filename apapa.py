@@ -1,4 +1,4 @@
-%%writefile xyz.py
+
 import streamlit as st
 
 import numpy as np
