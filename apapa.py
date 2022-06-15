@@ -40,7 +40,7 @@ prediction_proba = clf.predict_proba(df)
 st.subheader('Class labels and their corresponding index number')
 url = "https://raw.githubusercontent.com/shuraikhhh/airasiatalent/main/IRIS.csv"
 df=pd.read_csv(url)
-st.write([0:"setosa"1:"versicolor"2:"virginica"])
+st.write('[0:"setosa"1:"versicolor"2:"virginica"]')
 
 st.subheader('Prediction')
 #st.write(iris.target_names[prediction])
