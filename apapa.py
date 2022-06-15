@@ -46,7 +46,5 @@ st.write(iris.target_names[prediction])
 
 st.subheader('Prediction Probability')
 st.write(prediction_proba)
-© 2022 GitHub, Inc.
-Terms
-Privacy
+
 
