@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
-
-#from sklearn.ensemble import RandomForestClassifier
+from sklearn.ensemble import RandomForestClassifier
+import numpy as np
 
 st.write("""
 # Simple Iris Flower Prediction App
@@ -27,9 +27,9 @@ df = user_input_features()
 st.subheader('User Input parameters')
 st.write(df)
 
-iris = datasets.load_iris()
-X = iris.data
-Y = iris.target
+iris= pd.read_csv('https://raw.githubusercontent.com/dynbnn/myfinalassignment/main/IRIS.csv')
+X = iris[['sepal_length','sepal_width','petal_length','petal_width']]
+Y = iris['species']
 
 clf = RandomForestClassifier()
 clf.fit(X, Y)
@@ -38,9 +38,7 @@ prediction = clf.predict(df)
 prediction_proba = clf.predict_proba(df)
 
 st.subheader('Class labels and their corresponding index number')
-url = "https://raw.githubusercontent.com/shuraikhhh/airasiatalent/main/IRIS.csv"
-df=pd.read_csv(url)
-st.write('[0:"setosa"1:"versicolor"2:"virginica"]')
+st.write(['setosa','versicolor','virginica'])
 
 st.subheader('Prediction')
 #st.write(iris.target_names[prediction])
@@ -48,7 +46,3 @@ st.write(prediction)
 
 st.subheader('Prediction Probability')
 st.write(prediction_proba)
-
-
-
-
