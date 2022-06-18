@@ -24,7 +24,7 @@ option = st.sidebar.selectbox(
 
 if  option=='Dataset':
     st.write("Mall Customer Dataset")
-    st.dataframe(df)
+    st.table(df)
 
 elif  option=='Distribution of Data':
     #Distribution of Age
