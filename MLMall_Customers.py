@@ -10,10 +10,6 @@ from sklearn.cluster import KMeans
 st.header("Mall_Customers K-means clustering")
 st.write("By Shuraikh 'Ezzuddin")
 
-option = st.sidebar.selectbox(
-    'Select:',
-     ['Dataset','K-means clustering', 'Distribution of Data', 'Bi-variate Analysis'])
-
 df = pd.read_csv('https://raw.githubusercontent.com/shuraikhhh/airasiatalent/main/Mall_Customers.csv')
 
 df.rename(columns={"Genre":"Gender"}, inplace=True)
@@ -22,6 +18,9 @@ df.rename(columns={"Spending Score (1-100)":"Spending Score"}, inplace=True)
 
 #st.write("Mall Customer Dataset")
 #st.dataframe(df)
+option = st.sidebar.selectbox(
+    'Select:',
+     ['Dataset','K-means clustering', 'Distribution of Data', 'Bi-variate Analysis'])
 
 if  option=='Dataset':
     st.write("Mall Customer Dataset")
@@ -33,7 +32,7 @@ elif  option=='Distribution of Data':
     sns.set_style('darkgrid')
 
     sns.distplot(df.Age)
-    plt.title("Distribution of AGE\n", fontsize=20, color="black")
+    plt.title("Distribution of AGE\n", fontsize=18, color="black")
     plt.xlabel("Age Range", fontsize=15)
     plt.ylabel("Density", fontsize=15)
 
@@ -46,7 +45,7 @@ elif  option=='Distribution of Data':
     sns.set_style('darkgrid')
 
     sns.distplot(df["Annual Income"])
-    plt.title("Distribution of Annual Income (k$)\n", fontsize=20, color="black")
+    plt.title("Distribution of Annual Income (k$)\n", fontsize=18, color="black")
     plt.xlabel("Annual Income", fontsize=15)
     plt.ylabel("Density", fontsize=15)
     plt.show()
@@ -59,7 +58,7 @@ elif  option=='Distribution of Data':
     sns.set_style('darkgrid')
 
     sns.distplot(df["Spending Score"])
-    plt.title("Distribution of Spending Score (1-100)\n", fontsize=20, color="Black")
+    plt.title("Distribution of Spending Score (1-100)\n", fontsize=18, color="Black")
     plt.xlabel("Spending Score (1-100)", fontsize=15)
     plt.ylabel("Density", fontsize=15)
     plt.show()
@@ -70,7 +69,7 @@ elif  option=='Distribution of Data':
     fig3 = plt.figure(figsize=(7,5))
     sns.set_style('darkgrid')
 
-    plt.title("Distribution Gender\n", fontsize=20, color="Black")
+    plt.title("Distribution of Gender\n", fontsize=18, color="Black")
     plt.xlabel("Gender", fontsize=15)
     plt.ylabel("Count", fontsize=15)
     sns.countplot(df.Gender, palette="nipy_spectral_r")
@@ -84,7 +83,7 @@ elif  option=='Bi-variate Analysis':
     sns.set_style('darkgrid')
 
     sns.scatterplot(data=df, x="Age", y= "Annual Income", hue="Gender", s=60)
-    plt.title("Age VS Annual Income (k$)\n", fontsize=20, color="Black")
+    plt.title("Age VS Annual Income (k$)\n", fontsize=18, color="Black")
     plt.xlabel("Age", fontsize=15)
     plt.ylabel("Annual Income (k$)", fontsize=15)
     plt.show()
@@ -97,7 +96,7 @@ elif  option=='Bi-variate Analysis':
     sns.set_style('darkgrid')
 
     sns.scatterplot(data=df, x="Spending Score", y= "Annual Income", hue="Gender", s=60)
-    plt.title("Spending Score (1-100) VS Annual Income (k$)\n", fontsize=20, color="Black")
+    plt.title("Spending Score (1-100) VS Annual Income (k$)\n", fontsize=18, color="Black")
     plt.xlabel("Spending Score (1-100)", fontsize=15)
     plt.ylabel("Annual Income (k$)", fontsize=15)
     plt.show()
@@ -130,15 +129,17 @@ elif  option=='K-means clustering':
 
 
     figk = plt.figure(figsize=(12,6))
-
+    st.subheader("Finding the optimal k-value using elbow method")
     plt.plot(range(1,11), ssd, linewidth=2, color="purple", marker ="8")
-    plt.title("Elbow Curve\n=================================================================", fontsize=20, color="black")
+    plt.title("Elbow Method\n", fontsize=18, color="black")
     plt.xlabel("K Value")
     plt.xticks(np.arange(1,11,1))
     plt.ylabel("SSD")
 
     plt.show()
     st.pyplot(figk)
+    
+    st.write("Based on the graph, we conclude the optimal value of k is 5")
 
     # Modelling k means
     kmeans = KMeans(n_clusters=5, max_iter=50)
@@ -149,30 +150,30 @@ elif  option=='K-means clustering':
     df["Label"] = kmeans.labels_ #appending label cloumn to df
     #df.head()
 
-
+    st.subheader("Modelling K-means")
     #plotting data
     fig6 = plt.figure(figsize=(10,6))
-    plt.title("Plotting the data\n", fontsize=20,color='black')
+    plt.title("Plotting the data\n", fontsize=18,color='black')
     plt.scatter(df['Annual Income'],df['Spending Score'],color='blue')
     st.pyplot(fig6)
 
     fig7 = plt.figure(figsize=(10,6))
-
+    
+    st.subheader("Clustering k=5")
     #clustering
-    plt.title("Ploting the data into 5 clusters\n", fontsize=20, color="black")
+    plt.title("Ploting the data into 5 clusters\n", fontsize=18, color="black")
     sns.scatterplot(data=df, x="Annual Income", y="Spending Score", hue="Label", s=60, palette='Set2')
     plt.show()
     st.pyplot(fig7)
 
-
     df1 = df
-
-
+    
+    st.subheader("Pairplot")
     fig9 =sns.pairplot(df1, hue='Label', aspect=1.5, palette='Paired')
     plt.show()
     st.pyplot(fig9)
 
-
+    st.subheader("Relation to annual income and scoring history")
     #relation to annual income and scoring history
     fig8 = plt.figure(figsize=(20,8))
     ax = fig8.add_subplot(121)
