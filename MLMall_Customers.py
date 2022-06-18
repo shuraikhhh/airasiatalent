@@ -38,6 +38,7 @@ elif  option=='Distribution of Data':
 
     plt.show()
     st.pyplot(fig)
+    st.markdown('##')
 
 
     # Distribution of Anual Income
@@ -50,6 +51,7 @@ elif  option=='Distribution of Data':
     plt.ylabel("Density", fontsize=15)
     plt.show()
     st.pyplot(fig1)
+    st.markdown('#')
 
 
 
@@ -63,6 +65,7 @@ elif  option=='Distribution of Data':
     plt.ylabel("Density", fontsize=15)
     plt.show()
     st.pyplot(fig2)
+    st.markdown('#')
 
 
     # Distribution of Gender
@@ -75,6 +78,7 @@ elif  option=='Distribution of Data':
     sns.countplot(df.Gender, palette="nipy_spectral_r")
     plt.show()
     st.pyplot(fig3)
+    st.markdown('#')
 
 elif  option=='Bi-variate Analysis':
     # Age VS Anual Income
@@ -88,6 +92,7 @@ elif  option=='Bi-variate Analysis':
     plt.ylabel("Annual Income (k$)", fontsize=15)
     plt.show()
     st.pyplot(fig4)
+    st.markdown('#')
 
 
     # Spending score VS Anual Income
@@ -101,6 +106,7 @@ elif  option=='Bi-variate Analysis':
     plt.ylabel("Annual Income (k$)", fontsize=15)
     plt.show()
     st.pyplot(fig5)
+    st.markdown('#')
 
 elif  option=='K-means clustering':    
 
@@ -138,6 +144,7 @@ elif  option=='K-means clustering':
 
     plt.show()
     st.pyplot(figk)
+    st.markdown('#')
     
     st.write("Based on the graph, we conclude the optimal value of k is 5")
 
@@ -149,6 +156,7 @@ elif  option=='K-means clustering':
     #appending labels column to df
     df["Label"] = kmeans.labels_ #appending label cloumn to df
     #df.head()
+    st.markdown('#')
 
     st.subheader("Modelling K-means")
     #plotting data
@@ -156,15 +164,18 @@ elif  option=='K-means clustering':
     plt.title("Plotting the data\n", fontsize=18,color='black')
     plt.scatter(df['Annual Income'],df['Spending Score'],color='blue')
     st.pyplot(fig6)
+    st.markdown('#')
 
-    fig7 = plt.figure(figsize=(10,6))
     
+    fig7 = plt.figure(figsize=(10,6))
+  
     st.subheader("Clustering k=5")
     #clustering
     plt.title("Ploting the data into 5 clusters\n", fontsize=18, color="black")
     sns.scatterplot(data=df, x="Annual Income", y="Spending Score", hue="Label", s=60, palette='Set2')
     plt.show()
     st.pyplot(fig7)
+    st.markdown('#')
 
     df1 = df
     
@@ -172,6 +183,7 @@ elif  option=='K-means clustering':
     fig9 =sns.pairplot(df1, hue='Label', aspect=1.5, palette='Paired')
     plt.show()
     st.pyplot(fig9)
+    st.markdown('#')
 
     st.subheader("Relation to annual income and scoring history")
     #relation to annual income and scoring history
@@ -186,3 +198,4 @@ elif  option=='K-means clustering':
 
     plt.show()
     st.pyplot(fig8)
+    st.markdown('#')
