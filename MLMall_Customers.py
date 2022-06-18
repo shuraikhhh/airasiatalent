@@ -114,6 +114,7 @@ kmeans.labels_
 
 #appending labels column to df
 df["Label"] = kmeans.labels_ #appending label cloumn to df
+df.head()
 
 
 #plotting data
