@@ -146,11 +146,11 @@ st.pyplot(fig9)
 
 #relation to annual income and scoring history
 fig8 = plt.figure(figsize=(20,8))
-ax = fig.add_subplot(121)
+ax = fig8.add_subplot(121)
 sns.boxplot(x='Label', y='Annual Income', data=df, ax=ax, palette='Set2')
 ax.set_title('Labels According to Annual Income')
 
-ax = fig.add_subplot(122)
+ax = fig8.add_subplot(122)
 sns.boxplot(x='Label', y='Spending Score', data=df, ax=ax,palette='Set2')
 ax.set_title('Labels According to Scoring History')
 
