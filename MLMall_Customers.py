@@ -27,6 +27,7 @@ plt.xlabel("Age Range", fontsize=15)
 plt.ylabel("Density", fontsize=15)
 
 plt.show()
+st.pyplot()
 
 
 
