@@ -10,8 +10,8 @@ from sklearn.cluster import KMeans
 st.header("Mall_Customers K-means clustering")
 st.write("By Shuraikh 'Ezzuddin")
 
-opt = st.sidebar.selectbox(
-    'Select',
+option = st.sidebar.selectbox(
+    'Select:',
      ['Dataset','K-means clustering', 'Distribution of Data', 'Bi-variate Analysis'])
 
 df = pd.read_csv('https://raw.githubusercontent.com/shuraikhhh/airasiatalent/main/Mall_Customers.csv')
@@ -19,6 +19,9 @@ df = pd.read_csv('https://raw.githubusercontent.com/shuraikhhh/airasiatalent/mai
 df.rename(columns={"Genre":"Gender"}, inplace=True)
 df.rename(columns={"Annual Income (k$)":"Annual Income"}, inplace=True)
 df.rename(columns={"Spending Score (1-100)":"Spending Score"}, inplace=True)
+
+st.write("Mall Customer Dataset")
+st.dataframe(df)
 
 if  option=='Dataset':
     st.write("Mall Customer Dataset")
