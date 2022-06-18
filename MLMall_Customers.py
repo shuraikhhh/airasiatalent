@@ -122,22 +122,22 @@ elif  option=='K-means clustering':
 #finding the optimal k value
     ssd = []
 
-for num_clusters in range(1,11):
-    kmeans = KMeans(n_clusters=num_clusters, max_iter=50)
-    kmeans.fit(var_list)
-    
-    ssd.append(kmeans.inertia_)
-    
-    
-plt.figure(figsize=(12,6))
+    for num_clusters in range(1,11):
+        kmeans = KMeans(n_clusters=num_clusters, max_iter=50)
+        kmeans.fit(var_list)
 
-plt.plot(range(1,11), ssd, linewidth=2, color="purple", marker ="8")
-plt.title("Elbow Curve\n=================================================================", fontsize=20, color="black")
-plt.xlabel("K Value")
-plt.xticks(np.arange(1,11,1))
-plt.ylabel("SSD")
+        ssd.append(kmeans.inertia_)
 
-plt.show()
+
+    plt.figure(figsize=(12,6))
+
+    plt.plot(range(1,11), ssd, linewidth=2, color="purple", marker ="8")
+    plt.title("Elbow Curve\n=================================================================", fontsize=20, color="black")
+    plt.xlabel("K Value")
+    plt.xticks(np.arange(1,11,1))
+    plt.ylabel("SSD")
+
+    plt.show()
 
     # Modelling k means
     kmeans = KMeans(n_clusters=5, max_iter=50)
