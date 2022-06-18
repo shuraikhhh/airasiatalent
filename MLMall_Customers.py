@@ -41,7 +41,7 @@ elif  option=='Distribution of Data':
     st.markdown('##')
 
 
-    # Distribution of Anual Income
+    # Distribution of Annual Income
     fig1 = plt.figure(figsize=(10,6))
     sns.set_style('darkgrid')
 
@@ -51,7 +51,7 @@ elif  option=='Distribution of Data':
     plt.ylabel("Density", fontsize=15)
     plt.show()
     st.pyplot(fig1)
-    st.markdown('#')
+    st.markdown('##')
 
 
 
@@ -65,7 +65,7 @@ elif  option=='Distribution of Data':
     plt.ylabel("Density", fontsize=15)
     plt.show()
     st.pyplot(fig2)
-    st.markdown('#')
+    st.markdown('##')
 
 
     # Distribution of Gender
@@ -78,7 +78,7 @@ elif  option=='Distribution of Data':
     sns.countplot(df.Gender, palette="nipy_spectral_r")
     plt.show()
     st.pyplot(fig3)
-    st.markdown('#')
+    st.markdown('##')
 
 elif  option=='Bi-variate Analysis':
     # Age VS Anual Income
@@ -92,7 +92,7 @@ elif  option=='Bi-variate Analysis':
     plt.ylabel("Annual Income (k$)", fontsize=15)
     plt.show()
     st.pyplot(fig4)
-    st.markdown('#')
+    st.markdown('##')
 
 
     # Spending score VS Anual Income
@@ -106,7 +106,7 @@ elif  option=='Bi-variate Analysis':
     plt.ylabel("Annual Income (k$)", fontsize=15)
     plt.show()
     st.pyplot(fig5)
-    st.markdown('#')
+    st.markdown('##')
 
 elif  option=='K-means clustering':    
 
