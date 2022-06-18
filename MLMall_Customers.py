@@ -110,11 +110,11 @@ var_list = df_scaled_fit[["Annual Income","Spending Score"]]
 # Modelling k means
 kmeans = KMeans(n_clusters=5, max_iter=50)
 kmeans.fit(var_list)
-kmeans.labels_
+#kmeans.labels_
 
 #appending labels column to df
-df["Label"] = kmeans.labels_ #appending label cloumn to df
-df.head()
+#df["Label"] = kmeans.labels_ #appending label cloumn to df
+#df.head()
 
 
 #plotting data
