@@ -120,7 +120,7 @@ df["Label"] = kmeans.labels_ #appending label cloumn to df
 fig6 = plt.figure(figsize=(10,6))
 plt.title("Plotting the data\n============================================================", fontsize=20,color='black')
 plt.scatter(df['Annual Income'],df['Spending Score'],color='blue')
-st.pyplot(fig)
+st.pyplot(fig6)
 
 fig7 = plt.figure(figsize=(10,6))
 
