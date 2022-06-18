@@ -100,7 +100,7 @@ elif  option=='Bi-variate Analysis':
     plt.show()
     st.pyplot(fig5)
 
-elif  option=='K-means clustering'    
+elif  option=='K-means clustering':    
 
     #Scaling before applying model
     df_scaled = df[["Age","Annual Income","Spending Score"]]
