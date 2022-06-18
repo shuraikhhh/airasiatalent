@@ -30,8 +30,8 @@ plt.show()
 st.pyplot(fig)
 
 
-
-plt.figure(figsize=(10,6))
+# Distribution of Anual Income
+fig1 = plt.figure(figsize=(10,6))
 sns.set_style('darkgrid')
 
 sns.distplot(df["Annual Income"])
@@ -39,11 +39,12 @@ plt.title("Distribution of Annual Income (k$)\n=================================
 plt.xlabel("Annual Income", fontsize=15)
 plt.ylabel("Density", fontsize=15)
 plt.show()
-st.pyplot(fig)
+st.pyplot(fig1)
 
 
 
-plt.figure(figsize=(10,6))
+# Distribution of Spending score 
+fig2 = plt.figure(figsize=(10,6))
 sns.set_style('darkgrid')
 
 sns.distplot(df["Spending Score"])
@@ -51,10 +52,11 @@ plt.title("Distribution of Spending Score (1-100)\n=============================
 plt.xlabel("Spending Score (1-100)", fontsize=15)
 plt.ylabel("Density", fontsize=15)
 plt.show()
-st.pyplot(fig)
+st.pyplot(fig2)
 
 
-plt.figure(figsize=(7,5))
+# Distribution of Gender
+fig3 = plt.figure(figsize=(7,5))
 sns.set_style('darkgrid')
 
 plt.title("Distribution Gender\n======================================================", fontsize=20, color="Black")
@@ -62,11 +64,12 @@ plt.xlabel("Gender", fontsize=15)
 plt.ylabel("Count", fontsize=15)
 sns.countplot(df.Gender, palette="nipy_spectral_r")
 plt.show()
-st.pyplot(fig)
+st.pyplot(fig3)
 
 
 # Age VS Anual Income
-plt.figure(figsize=(10,6))
+
+fig4 = plt.figure(figsize=(10,6))
 sns.set_style('darkgrid')
 
 sns.scatterplot(data=df, x="Age", y= "Annual Income", hue="Gender", s=60)
@@ -74,12 +77,12 @@ plt.title("Age VS Annual Income (k$)\n==========================================
 plt.xlabel("Age", fontsize=15)
 plt.ylabel("Annual Income (k$)", fontsize=15)
 plt.show()
-st.pyplot(fig)
+st.pyplot(fig4)
 
 
 # Spending score VS Anual Income
 
-plt.figure(figsize=(10,6))
+fig5 = plt.figure(figsize=(10,6))
 sns.set_style('darkgrid')
 
 sns.scatterplot(data=df, x="Spending Score", y= "Annual Income", hue="Gender", s=60)
