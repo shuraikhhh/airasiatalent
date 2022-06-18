@@ -129,7 +129,7 @@ elif  option=='K-means clustering':
         ssd.append(kmeans.inertia_)
 
 
-    plt.figure(figsize=(12,6))
+    figk = plt.figure(figsize=(12,6))
 
     plt.plot(range(1,11), ssd, linewidth=2, color="purple", marker ="8")
     plt.title("Elbow Curve\n=================================================================", fontsize=20, color="black")
@@ -138,6 +138,7 @@ elif  option=='K-means clustering':
     plt.ylabel("SSD")
 
     plt.show()
+    st.pyplot(figk)
 
     # Modelling k means
     kmeans = KMeans(n_clusters=5, max_iter=50)
