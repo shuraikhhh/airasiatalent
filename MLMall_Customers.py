@@ -90,4 +90,41 @@ plt.title("Spending Score (1-100) VS Annual Income (k$)\n=======================
 plt.xlabel("Spending Score (1-100)", fontsize=15)
 plt.ylabel("Annual Income (k$)", fontsize=15)
 plt.show()
+st.pyplot(fig5)
+
+
+#Scaling before applying model
+df_scaled = df[["Age","Annual Income","Spending Score"]]
+
+# Class instance
+scaler = StandardScaler()      #WHY WE USE STANDARD SCALER
+
+# Fit_transform
+df_scaled_fit = scaler.fit_transform(df_scaled)
+
+
+df_scaled_fit = pd.DataFrame(df_scaled_fit)
+df_scaled_fit.columns = ["Age","Annual Income","Spending Score"]
+var_list = df_scaled_fit[["Annual Income","Spending Score"]]
+
+# Modelling k means
+kmeans = KMeans(n_clusters=5, max_iter=50)
+kmeans.fit(var_list)
+kmeans.labels
+
+#appending labels column to df
+df["Label"] = kmeans.labels_ #appending label cloumn to df
+
+
+#plotting data
+fig6 = plt.figure(figsize=(10,6))
+plt.title("Plotting the data\n============================================================", fontsize=20,color='black')
+plt.scatter(df['Annual Income'],df['Spending Score'],color='blue')
 st.pyplot(fig)
+
+fig7 = plt.figure(figsize=(10,6))
+
+plt.title("Ploting the data into 5 clusters\n=================================================================", fontsize=20, color="black")
+sns.scatterplot(data=df, x="Annual Income", y="Spending Score", hue="Label", s=60, palette='Set2')
+plt.show()
+st.pyplot(fig7)
