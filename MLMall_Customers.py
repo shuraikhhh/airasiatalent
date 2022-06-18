@@ -39,6 +39,7 @@ plt.title("Distribution of Annual Income (k$)\n=================================
 plt.xlabel("Annual Income", fontsize=15)
 plt.ylabel("Density", fontsize=15)
 plt.show()
+st.pyplot(fig)
 
 
 
@@ -50,6 +51,7 @@ plt.title("Distribution of Spending Score (1-100)\n=============================
 plt.xlabel("Spending Score (1-100)", fontsize=15)
 plt.ylabel("Density", fontsize=15)
 plt.show()
+st.pyplot(fig)
 
 
 plt.figure(figsize=(7,5))
@@ -60,6 +62,7 @@ plt.xlabel("Gender", fontsize=15)
 plt.ylabel("Count", fontsize=15)
 sns.countplot(df.Gender, palette="nipy_spectral_r")
 plt.show()
+st.pyplot(fig)
 
 
 # Age VS Anual Income
@@ -71,6 +74,7 @@ plt.title("Age VS Annual Income (k$)\n==========================================
 plt.xlabel("Age", fontsize=15)
 plt.ylabel("Annual Income (k$)", fontsize=15)
 plt.show()
+st.pyplot(fig)
 
 
 # Spending score VS Anual Income
@@ -83,3 +87,4 @@ plt.title("Spending Score (1-100) VS Annual Income (k$)\n=======================
 plt.xlabel("Spending Score (1-100)", fontsize=15)
 plt.ylabel("Annual Income (k$)", fontsize=15)
 plt.show()
+st.pyplot(fig)
