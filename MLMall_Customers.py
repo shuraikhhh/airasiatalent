@@ -18,6 +18,7 @@ df.rename(columns={"Genre":"Gender"}, inplace=True)
 df.rename(columns={"Annual Income (k$)":"Annual Income"}, inplace=True)
 df.rename(columns={"Spending Score (1-100)":"Spending Score"}, inplace=True)
 
+st.write("Mall Customer Dataset"
 df
 
 #Distribution of Age
