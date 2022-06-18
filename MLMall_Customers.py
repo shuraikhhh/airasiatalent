@@ -9,6 +9,9 @@ import seaborn as sns
 from sklearn.preprocessing import StandardScaler
 from sklearn.cluster import KMeans
 
+st.header("Mall_Customers K-means clustering")
+st.write("By Shuraikh 'Ezzuddin")
+
 df = pd.read_csv('https://raw.githubusercontent.com/shuraikhhh/airasiatalent/main/Mall_Customers.csv')
 
 df.rename(columns={"Genre":"Gender"}, inplace=True)
@@ -73,7 +76,7 @@ fig4 = plt.figure(figsize=(10,6))
 sns.set_style('darkgrid')
 
 sns.scatterplot(data=df, x="Age", y= "Annual Income", hue="Gender", s=60)
-plt.title("Age VS Annual Income (k$)\n=================================================================", fontsize=20, color="green")
+plt.title("Age VS Annual Income (k$)\n=================================================================", fontsize=20, color="Black")
 plt.xlabel("Age", fontsize=15)
 plt.ylabel("Annual Income (k$)", fontsize=15)
 plt.show()
@@ -86,7 +89,7 @@ fig5 = plt.figure(figsize=(10,6))
 sns.set_style('darkgrid')
 
 sns.scatterplot(data=df, x="Spending Score", y= "Annual Income", hue="Gender", s=60)
-plt.title("Spending Score (1-100) VS Annual Income (k$)\n=================================================================", fontsize=20, color="green")
+plt.title("Spending Score (1-100) VS Annual Income (k$)\n=================================================================", fontsize=20, color="Black")
 plt.xlabel("Spending Score (1-100)", fontsize=15)
 plt.ylabel("Annual Income (k$)", fontsize=15)
 plt.show()
@@ -125,7 +128,30 @@ st.pyplot(fig6)
 
 fig7 = plt.figure(figsize=(10,6))
 
+#clustering
 plt.title("Ploting the data into 5 clusters\n=================================================================", fontsize=20, color="black")
 sns.scatterplot(data=df, x="Annual Income", y="Spending Score", hue="Label", s=60, palette='Set2')
 plt.show()
 st.pyplot(fig7)
+
+
+df1 = df
+
+
+fig9 =sns.pairplot(df1, hue='Label', aspect=1.5, palette='Paired')
+plt.show()
+st.pyplot(fig9)
+
+
+#relation to annual income and scoring history
+fig8 = plt.figure(figsize=(20,8))
+ax = fig.add_subplot(121)
+sns.boxplot(x='Label', y='Annual Income', data=df, ax=ax, palette='Set2')
+ax.set_title('Labels According to Annual Income')
+
+ax = fig.add_subplot(122)
+sns.boxplot(x='Label', y='Spending Score', data=df, ax=ax,palette='Set2')
+ax.set_title('Labels According to Scoring History')
+
+plt.show()
+st.pyplot(fig8)
