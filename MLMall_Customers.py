@@ -12,6 +12,10 @@ from sklearn.cluster import KMeans
 st.header("Mall_Customers K-means clustering")
 st.write("By Shuraikh 'Ezzuddin")
 
+opt = st.sidebar.selectbox(
+    'Select',
+     ['K-means clustering', 'Distribution of Data', 'Bi-variate Analysis'])
+
 df = pd.read_csv('https://raw.githubusercontent.com/shuraikhhh/airasiatalent/main/Mall_Customers.csv')
 
 df.rename(columns={"Genre":"Gender"}, inplace=True)
@@ -19,7 +23,7 @@ df.rename(columns={"Annual Income (k$)":"Annual Income"}, inplace=True)
 df.rename(columns={"Spending Score (1-100)":"Spending Score"}, inplace=True)
 
 st.write("Mall Customer Dataset")
-df
+st.dataframe(df)
 
 #Distribution of Age
 fig = plt.figure(figsize=(10,6))
