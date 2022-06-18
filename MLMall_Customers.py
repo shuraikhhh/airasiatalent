@@ -18,7 +18,7 @@ df.rename(columns={"Spending Score (1-100)":"Spending Score"}, inplace=True)
 df
 
 #Distribution of Age
-plt.figure(figsize=(10,6))
+fig = plt.figure(figsize=(10,6))
 sns.set_style('darkgrid')
 
 sns.distplot(df.Age)
@@ -27,7 +27,7 @@ plt.xlabel("Age Range", fontsize=15)
 plt.ylabel("Density", fontsize=15)
 
 plt.show()
-st.pyplot()
+st.pyplot(fig)
 
 
 
